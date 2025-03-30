@@ -43,10 +43,10 @@ INSTALLED_APPS = [
     'Post',
     'Like',
     'Follow',
-    'Notification',
-    'UserProfile',
+    'Userprofile',
     
 ]
+AUTH_USER_MODEL = 'User.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
