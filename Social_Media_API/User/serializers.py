@@ -141,7 +141,7 @@ class UserDetailView(APIView):
         if not request.user.is_authenticated:
             return Response({
                 'authenticated': False,
-                'detail': 'Authentication credentials were not provided.'
+                'detail': 'Authentication credentials not provided.'
             }, status=status.HTTP_401_UNAUTHORIZED)
         
         # Ensure that you're accessing the authenticated user
