@@ -1,5 +1,14 @@
-from rest_framework.routers import DefaultRouter
-from .views import UserProfileViewSet  # Import the missing UserProfileViewSet
+from django.urls import path
+from .views import (
+    UserListView,
+    UserDetailView,
+    UserUpdateView,
+    UserDeleteView,
+)
 
-router = DefaultRouter()
-router.register(r'profiles', UserProfileViewSet, basename='profile')
+urlpatterns = [
+    path('', UserListView.as_view(), name='user-list'),
+    path('<int:pk>/', UserDetailView.as_view(), name='user-detail'),
+    path('<int:pk>/update/', UserUpdateView.as_view(), name='user-update'),
+    path('<int:pk>/delete/', UserDeleteView.as_view(), name='user-delete'),
+]

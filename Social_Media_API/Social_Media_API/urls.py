@@ -16,23 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from User.views import UserViewSet
-from Userprofile.views import UserProfileViewSet
-from Post.views import PostViewSet
-from Comment.views import CommentViewSet
-from Follow.views import FollowViewSet
-from Like.views import LikeViewSet  # Import LikeViewSet
-
-router = DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'profiles', UserProfileViewSet)
-router.register(r'posts', PostViewSet)
-router.register(r'comments', CommentViewSet)
-router.register(r'likes', LikeViewSet)
-router.register(r'follows', FollowViewSet)
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),  # All API endpoints are under /api/
+    path('api/users/', include('userprofile.urls')),
+    path('api/auth/', include('User.urls')),
+    path('api/posts/', include('Post.urls')),
+    path('api/comments/', include('Comment.urls')),
+    path('api/likes/', include('Like.urls')),
+    path('api/follows/', include('Follow.urls')),
+    
+  # All API endpoints are under /api/
 ]

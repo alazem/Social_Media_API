@@ -6,7 +6,8 @@ class Like(models.Model):
     post = models.ForeignKey("post.Post", on_delete=models.CASCADE, null=True, blank=True)
     comment = models.ForeignKey("comment.Comment", on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    class Meta:
+        unique_together = ('user', 'post', 'comment')
     def __str__(self):
         if self.post:
             return f"{self.user.username} liked Post {self.post.id}"
