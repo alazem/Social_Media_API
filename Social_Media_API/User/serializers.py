@@ -7,7 +7,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import get_user_model
- 
+
+User = get_user_model()
 class RegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True)
     password_confirm = serializers.CharField(write_only=True, required=True)
@@ -97,11 +98,9 @@ class PasswordChangeSerializer(serializers.Serializer):
         user.save()
         return user
 
-
-
-User = get_user_model()
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email']  # add fields relevant to your model
+        fields = '__all__' # add fields relevant to your model
+
+# In the view where you are using the serializer

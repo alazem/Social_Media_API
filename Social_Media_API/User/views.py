@@ -4,7 +4,10 @@ from rest_framework import status
 from .serializers import RegistrationSerializer, LoginSerializer, UserSerializer,PasswordChangeSerializer
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
-from rest_framework.permissions import IsAuthenticated  
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth import get_user_model
+
+User = get_user_model() 
 # User Registration View
 class RegistrationView(APIView):
     def post(self, request):
