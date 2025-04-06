@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Like',
     'Follow',
     'Userprofile',
+    'search',
     
 ]
 AUTH_USER_MODEL = 'User.User'

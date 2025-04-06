@@ -4,7 +4,8 @@ from rest_framework import status, permissions
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from .models import Follow
-from .serializers import FollowSerializer, UserSerializer
+from .serializers import FollowSerializer
+from User.serializers import UserSerializer  # Import from User.serializers
 
 User = get_user_model()
 

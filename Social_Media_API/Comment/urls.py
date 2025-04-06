@@ -1,5 +1,7 @@
-from rest_framework.routers import DefaultRouter
-from .views import CommentViewSet  # Import CommentViewSet from the views module
+from django.urls import path
+from Comment.views import CommentListCreateAPIView, CommentDetailAPIView
 
-router = DefaultRouter()
-router.register(r'comments', CommentViewSet, basename='comment')
+urlpatterns = [
+    path('posts/<int:post_id>/comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),
+    path('comments/<int:comment_id>/', CommentDetailAPIView.as_view(), name='comment-detail'),
+]
