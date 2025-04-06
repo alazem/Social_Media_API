@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/comments/', include('Comment.urls')),
     path('api/likes/', include('Like.urls')),
     path('api/follows/', include('Follow.urls')),
+    path('api/search/', include('search.urls')),
     
   # All API endpoints are under /api/
 ]
