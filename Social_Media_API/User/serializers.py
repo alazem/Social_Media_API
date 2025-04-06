@@ -61,7 +61,7 @@ class LoginSerializer(serializers.Serializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     class Meta:
         model = User
         fields = ['id', 'username', 'email']
@@ -136,7 +136,7 @@ class LogoutView(APIView):
 
 
 class UserDetailView(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         if not request.user.is_authenticated:
             return Response({
